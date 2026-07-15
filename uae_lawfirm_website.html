@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Al Rashidi & Partners — Law Firm UAE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ivory:#faf8f3;--cream:#f3efe6;--parchment:#e8e0ce;
+  --navy:#0e1f35;--navy2:#162840;--navy3:#1e3550;
+  --gold:#b8973e;--gold2:#d4af5a;--gold-dim:rgba(184,151,62,0.12);
+  --text:#1a1a1a;--mid:#444;--muted:#888;--hint:#bbb;
+  --border:rgba(184,151,62,0.18);--border2:rgba(184,151,62,0.35);
+  --white:#ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ivory);color:var(--text);font-family:'Lato',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;transition:all 0.5s;padding:0 6%;}
+nav.scrolled{background:rgba(14,31,53,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,151,62,0.15);}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;flex-direction:column;}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--white);letter-spacing:0.04em;}
+.nav-logo-sub{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:1px;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.3s;font-weight:400;}
+.nav-links a:hover{color:var(--gold);}
+.nav-consult{border:1px solid var(--gold);color:var(--gold);padding:9px 22px;font-family:'Lato',sans-serif;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;background:transparent;transition:all 0.3s;}
+.nav-consult:hover{background:var(--gold);color:var(--navy);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:flex-end;padding:0 6% 10vh;position:relative;overflow:hidden;}
+.hero-bg-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(184,151,62,0.03) 79px,rgba(184,151,62,0.03) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(184,151,62,0.03) 79px,rgba(184,151,62,0.03) 80px);}
+.hero-arc{position:absolute;top:-20%;right:-10%;width:70vw;height:70vw;border-radius:50%;border:1px solid rgba(184,151,62,0.06);animation:arcSpin 60s linear infinite;}
+.hero-arc2{position:absolute;top:-10%;right:0%;width:50vw;height:50vw;border-radius:50%;border:1px solid rgba(184,151,62,0.04);animation:arcSpin 40s linear infinite reverse;}
+.hero-arc3{position:absolute;top:5%;right:10%;width:30vw;height:30vw;border-radius:50%;background:rgba(184,151,62,0.03);}
+@keyframes arcSpin{to{transform:rotate(360deg);}}
+.hero-glow{position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(14,31,53,0.8),transparent);}
+.hero-content{position:relative;z-index:2;max-width:780px;}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;animation:riseUp 0.9s ease both;}
+.badge-line{width:40px;height:1px;background:var(--gold);}
+.badge-text{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,6.5vw,6.5rem);font-weight:600;color:var(--white);line-height:1.05;letter-spacing:-0.01em;margin-bottom:28px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero h1 .l1{display:block;animation:riseUp 0.9s 0.1s ease both;opacity:0;}
+.hero h1 .l2{display:block;animation:riseUp 0.9s 0.2s ease both;opacity:0;}
+.hero h1 .l3{display:block;animation:riseUp 0.9s 0.3s ease both;opacity:0;}
+.hero-rule{width:60px;height:1px;background:var(--gold);margin-bottom:24px;animation:riseUp 0.9s 0.4s ease both;opacity:0;}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);font-weight:300;line-height:1.9;max-width:480px;margin-bottom:44px;animation:riseUp 0.9s 0.5s ease both;opacity:0;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;animation:riseUp 0.9s 0.6s ease both;opacity:0;}
+.cta-primary{background:var(--gold);color:var(--navy);padding:15px 36px;font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s;}
+.cta-primary:hover{background:var(--gold2);transform:translateY(-2px);}
+.cta-ghost{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:14px 34px;font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all 0.3s;}
+.cta-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{position:absolute;right:6%;bottom:10vh;z-index:2;display:flex;flex-direction:column;gap:24px;animation:riseUp 0.9s 0.7s ease both;opacity:0;}
+.hst{text-align:right;padding-right:18px;border-right:1px solid rgba(184,151,62,0.3);}
+.hst-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--gold);line-height:1;}
+.hst-l{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:3px;}
+.scroll-cue{position:absolute;bottom:36px;left:6%;z-index:2;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.3);font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;animation:fadeIn 1.5s 1s ease both;opacity:0;}
+.scroll-track{width:1px;height:48px;background:rgba(184,151,62,0.2);position:relative;overflow:hidden;}
+.scroll-thumb{position:absolute;top:0;left:0;right:0;height:50%;background:var(--gold);animation:scrollDown 2s ease-in-out infinite;}
+@keyframes scrollDown{0%{top:0;opacity:1;}100%{top:100%;opacity:0;}}
+@keyframes riseUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+/* ── MARQUEE ── */
+.marquee{background:var(--gold);padding:12px 0;overflow:hidden;}
+.marquee-inner{display:flex;animation:marqueeScroll 25s linear infinite;width:max-content;}
+.marquee-item{font-family:'Lato',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy);padding:0 36px;white-space:nowrap;}
+.marquee-dot{color:rgba(14,31,53,0.35);margin:0 6px;}
+@keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ── SECTION BASE ── */
+section{padding:100px 6%;}
+.s-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
+.s-line{width:32px;height:1px;background:var(--gold);}
+.s-tag{font-size:0.64rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:400;}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.6rem);font-weight:600;line-height:1.1;letter-spacing:-0.01em;margin-bottom:18px;}
+.s-sub{color:var(--muted);font-size:0.92rem;font-weight:300;line-height:1.9;max-width:540px;}
+
+/* ── ABOUT ── */
+.about{background:var(--white);position:relative;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+.about-left{}
+.about-blockquote{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;font-weight:400;color:var(--navy);line-height:1.7;border-left:2px solid var(--gold);padding-left:24px;margin:32px 0;}
+.about-text{color:var(--mid);font-size:0.9rem;font-weight:300;line-height:1.95;margin-bottom:20px;}
+.about-right{position:relative;}
+.about-img-main{aspect-ratio:3/4;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;overflow:hidden;}
+.about-img-main::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(14,31,53,0.5));}
+.about-float{position:absolute;bottom:-24px;left:-24px;background:var(--navy);padding:28px;z-index:2;min-width:160px;}
+.af-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;color:var(--gold);line-height:1;}
+.af-label{font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:4px;font-weight:400;}
+.about-cert{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap;}
+.cert{border:1px solid var(--parchment);padding:8px 16px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+
+/* ── PRACTICE AREAS ── */
+.practice{background:var(--navy);}
+.practice .s-title{color:var(--white);}
+.practice .s-sub{color:rgba(255,255,255,0.4);}
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,151,62,0.1);margin-top:60px;}
+.pa{background:var(--navy2);padding:44px 36px;position:relative;overflow:hidden;cursor:default;transition:all 0.4s;}
+.pa::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.4s;}
+.pa:hover{background:var(--navy3);}
+.pa:hover::before{transform:scaleX(1);}
+.pa-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:600;color:rgba(184,151,62,0.15);line-height:1;margin-bottom:20px;transition:color 0.4s;}
+.pa:hover .pa-num{color:rgba(184,151,62,0.35);}
+.pa-icon{font-size:1.8rem;margin-bottom:16px;display:block;}
+.pa-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:12px;transition:color 0.3s;}
+.pa:hover .pa-name{color:var(--gold);}
+.pa-desc{font-size:0.82rem;color:rgba(255,255,255,0.4);line-height:1.8;font-weight:300;}
+.pa-arrow{display:inline-block;margin-top:20px;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(184,151,62,0.4);transition:all 0.3s;}
+.pa:hover .pa-arrow{color:var(--gold);transform:translateX(6px);}
+
+/* ── TEAM ── */
+.team{background:var(--ivory);}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:60px;}
+.tm{position:relative;cursor:pointer;}
+.tm-img{aspect-ratio:3/4;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.tm-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,31,53,0.9) 0%,rgba(14,31,53,0.2) 50%,transparent 100%);opacity:0;transition:opacity 0.4s;}
+.tm:hover .tm-img::after{opacity:1;}
+.tm-overlay{position:absolute;bottom:0;left:0;right:0;padding:24px;transform:translateY(10px);opacity:0;transition:all 0.4s;}
+.tm:hover .tm-overlay{transform:translateY(0);opacity:1;}
+.tm-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:0.85rem;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:10px;}
+.tm-wa{display:inline-flex;align-items:center;gap:6px;background:#25d366;color:#fff;font-size:0.7rem;font-weight:700;padding:7px 14px;cursor:pointer;border:none;font-family:'Lato',sans-serif;letter-spacing:0.06em;}
+.tm-info{padding:18px 0 0;}
+.tm-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;margin-bottom:5px;}
+.tm-role{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:400;}
+.tm-langs{font-size:0.75rem;color:var(--muted);}
+.tm-bar{width:0;height:2px;background:var(--gold);transition:width 0.4s;margin-bottom:8px;}
+.tm:hover .tm-bar{width:40px;}
+
+/* ── NUMBERS ── */
+.numbers{background:var(--cream);padding:72px 6%;border-top:1px solid var(--parchment);border-bottom:1px solid var(--parchment);}
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.nm{text-align:center;padding:36px 20px;border-right:1px solid var(--parchment);position:relative;}
+.nm:last-child{border:none;}
+.nm-n{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:600;color:var(--navy);line-height:1;margin-bottom:8px;}
+.nm-l{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+.nm::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--gold);transition:width 0.5s;}
+.nm:hover::after{width:50%;}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--white);}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px;}
+.testi{background:var(--ivory);border:1px solid var(--parchment);padding:36px;position:relative;transition:border-color 0.3s;}
+.testi:hover{border-color:var(--gold);}
+.testi-mark{position:absolute;top:20px;right:24px;font-family:'Playfair Display',serif;font-size:5rem;font-weight:700;color:var(--parchment);line-height:1;}
+.testi-stars{color:var(--gold);font-size:0.75rem;margin-bottom:14px;letter-spacing:2px;}
+.testi-text{font-family:'Playfair Display',serif;font-size:0.98rem;font-style:italic;color:var(--navy);line-height:1.85;margin-bottom:22px;position:relative;z-index:1;}
+.testi-divider{width:32px;height:1px;background:var(--gold);margin-bottom:16px;}
+.testi-author{font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;}
+.testi-role{font-size:0.72rem;color:var(--muted);}
+.testi-case{display:inline-block;margin-top:12px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,151,62,0.3);padding:4px 10px;}
+
+/* ── BLOG ── */
+.blog{background:var(--ivory);}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.blog-card{background:var(--white);border:1px solid var(--parchment);transition:all 0.3s;cursor:pointer;}
+.blog-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.blog-img{height:200px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
+.blog-cat{position:absolute;bottom:0;left:0;background:var(--gold);color:var(--navy);font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:5px 12px;}
+.blog-body{padding:22px;}
+.blog-date{font-size:0.68rem;color:var(--muted);letter-spacing:0.1em;margin-bottom:10px;}
+.blog-title{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:600;line-height:1.5;margin-bottom:10px;color:var(--navy);}
+.blog-excerpt{font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:14px;}
+.blog-read{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+
+/* ── CONTACT ── */
+.contact{background:var(--navy);position:relative;overflow:hidden;}
+.contact::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(184,151,62,0.02) 79px,rgba(184,151,62,0.02) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(184,151,62,0.02) 79px,rgba(184,151,62,0.02) 80px);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;position:relative;z-index:1;}
+.contact .s-title{color:var(--white);}
+.contact .s-sub{color:rgba(255,255,255,0.4);}
+.contact-items{display:flex;flex-direction:column;gap:18px;margin-top:36px;}
+.ci{display:flex;gap:16px;align-items:flex-start;padding:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(184,151,62,0.1);transition:border-color 0.3s;}
+.ci:hover{border-color:rgba(184,151,62,0.3);}
+.ci-icon{width:44px;height:44px;background:var(--gold-dim);border:1px solid rgba(184,151,62,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ci-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:4px;}
+.ci-val{font-size:0.88rem;color:rgba(255,255,255,0.8);}
+.contact-form{background:rgba(255,255,255,0.03);border:1px solid rgba(184,151,62,0.12);padding:36px;}
+.cf-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:6px;}
+.cf-sub{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-bottom:28px;}
+.fg{display:flex;flex-direction:column;gap:5px;margin-bottom:16px;}
+.fg label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(184,151,62,0.15);color:rgba(255,255,255,0.8);font-family:'Lato',sans-serif;font-size:0.88rem;font-weight:300;padding:12px 16px;outline:none;transition:border-color 0.3s;width:100%;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(184,151,62,0.5);}
+.fg select option{background:var(--navy2);}
+.fg textarea{resize:none;height:96px;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.submit-btn{background:var(--gold);color:var(--navy);border:none;padding:14px;width:100%;font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;margin-bottom:10px;}
+.submit-btn:hover{background:var(--gold2);}
+.wa-btn{width:100%;background:#25d366;color:#fff;border:none;padding:12px;font-family:'Lato',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.2s;}
+.wa-btn:hover{opacity:0.88;}
+
+/* ── FOOTER ── */
+footer{background:rgb(8,16,28);padding:56px 6% 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:50px;margin-bottom:40px;}
+.footer-logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--gold);margin-bottom:12px;}
+.footer-desc{font-size:0.78rem;color:rgba(255,255,255,0.25);line-height:1.9;margin-bottom:18px;}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.fb{border:1px solid rgba(184,151,62,0.15);padding:4px 10px;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);}
+.footer-col h4{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:16px;}
+.footer-col a{display:block;font-size:0.78rem;color:rgba(255,255,255,0.2);text-decoration:none;margin-bottom:10px;transition:color 0.2s;font-weight:300;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.04);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.15);}
+.dubai-bar-badge{font-size:0.66rem;color:rgba(184,151,62,0.5);border:1px solid rgba(184,151,62,0.15);padding:4px 12px;letter-spacing:0.08em;}
+
+/* ── FLOATING WA ── */
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:400;background:#25d366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s;border:none;}
+.float-wa:hover{transform:scale(1.1);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:100px;right:28px;background:var(--navy);color:var(--white);border:1px solid rgba(184,151,62,0.3);padding:12px 18px;font-size:0.8rem;font-weight:300;z-index:9999;transform:translateY(60px);opacity:0;transition:all 0.4s;pointer-events:none;letter-spacing:0.04em;}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ── MOBILE NAV TOGGLE & DRAWER ── */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 500;
+}
+.mobile-nav-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+}
+nav.scrolled .mobile-nav-toggle .bar {
+  background-color: var(--white);
+}
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 340px;
+  height: 100vh;
+  background: var(--navy2);
+  z-index: 600;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  border-left: 1px solid var(--border);
+}
+.mobile-drawer.open {
+  right: 0;
+}
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.drawer-header .nav-logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.drawer-close {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: var(--white);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.drawer-close:hover {
+  color: var(--gold);
+}
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.drawer-links a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  display: block;
+  opacity: 0;
+  transform: translateY(15px);
+}
+.mobile-drawer.open .drawer-links a {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.mobile-drawer.open .drawer-links li:nth-child(1) a { transition-delay: 0.1s; }
+.mobile-drawer.open .drawer-links li:nth-child(2) a { transition-delay: 0.15s; }
+.mobile-drawer.open .drawer-links li:nth-child(3) a { transition-delay: 0.2s; }
+.mobile-drawer.open .drawer-links li:nth-child(4) a { transition-delay: 0.25s; }
+.mobile-drawer.open .drawer-links li:nth-child(5) a { transition-delay: 0.3s; }
+
+.drawer-links a:hover {
+  color: var(--gold);
+  padding-left: 6px;
+}
+.drawer-consult {
+  margin-top: auto;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 12px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s;
+  width: 100%;
+}
+.drawer-consult:hover {
+  background: var(--gold);
+  color: var(--navy);
+}
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 16, 28, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 550;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Touch device overlays for Team cards */
+.tm.touch-active .tm-img::after {
+  opacity: 1;
+}
+.tm.touch-active .tm-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── RESPONSIVE MEDIA QUERIES ── */
+@media(max-width: 1024px) {
+  nav { padding: 0 4%; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 0.68rem; }
+  .nav-consult { padding: 8px 16px; font-size: 0.62rem; }
+  
+  .about-grid { gap: 40px; }
+  .contact-grid { gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  
+  .practice-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media(max-width: 992px) {
+  .nav-links, .nav-consult { display: none; }
+  .mobile-nav-toggle { display: flex; }
+  
+  section { padding: 80px 5%; }
+  .hero { padding: 0 5% 8vh; }
+  .hero-stats {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(184,151,62,0.15);
+    animation: riseUp 0.9s 0.7s ease both;
+    opacity: 0;
+  }
+  .hst { text-align: left; padding-right: 0; padding-left: 14px; border-right: none; border-left: 1px solid rgba(184,151,62,0.3); }
+  .scroll-cue { display: none; }
+}
+
+@media(max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-right { order: -1; max-width: 500px; margin: 0 auto 30px; width: 100%; }
+  .about-float { left: 0; bottom: 0; padding: 20px; min-width: 130px; }
+  .af-num { font-size: 2.2rem; }
+  
+  .practice-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; max-width: 450px; margin: 40px auto 0; }
+  .blog-grid { grid-template-columns: 1fr; max-width: 450px; margin: 40px auto 0; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+  
+  .numbers-grid { grid-template-columns: 1fr 1fr; }
+  .nm { border-right: none; border-bottom: 1px solid var(--parchment); }
+  .nm:nth-child(even) { border-left: 1px solid var(--parchment); }
+  .nm:nth-child(3), .nm:nth-child(4) { border-bottom: none; }
+  
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 15px; }
+  
+  .fg-row { grid-template-columns: 1fr; gap: 0; }
+  .contact-form { padding: 24px; }
+}
+
+@media(max-width: 576px) {
+  section { padding: 60px 4%; }
+  .hero { align-items: center; justify-content: center; text-align: center; padding-top: 120px; }
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero h1 { font-size: clamp(2.2rem, 8vw, 3.4rem); line-height: 1.15; }
+  .hero-badge { margin-bottom: 20px; justify-content: center; }
+  .hero-sub { font-size: 0.9rem; margin-bottom: 30px; }
+  .hero-ctas { width: 100%; flex-direction: column; gap: 12px; }
+  .hero-ctas button { width: 100%; }
+  .hero-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .hst { text-align: center; border-left: none; padding-left: 0; }
+  
+  .numbers-grid { grid-template-columns: 1fr; }
+  .nm { border-left: none !important; border-bottom: 1px solid var(--parchment); }
+  .nm:last-child { border-bottom: none; }
+  
+  .about-cert { justify-content: center; }
+  .about-blockquote { font-size: 1.15rem; margin: 24px 0; padding-left: 16px; }
+  
+  .contact-form { padding: 20px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<button class="float-wa" onclick="showToast('Opening WhatsApp consultation...')">💬</button>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-main">Al Rashidi & Partners</div>
+      <div class="nav-logo-sub">Advocates & Legal Consultants</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">The Firm</a></li>
+      <li><a href="#practice">Practice Areas</a></li>
+      <li><a href="#team">Our Lawyers</a></li>
+      <li><a href="#blog">Insights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-consult" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Consultation</button>
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="mobile-drawer" id="mobile-drawer">
+  <div class="drawer-header">
+    <div class="nav-logo">
+      <div class="nav-logo-main">Al Rashidi & Partners</div>
+      <div class="nav-logo-sub">Advocates & Legal Consultants</div>
+    </div>
+    <button class="drawer-close" id="drawer-close" aria-label="Close menu">&times;</button>
+  </div>
+  <ul class="drawer-links">
+    <li><a href="#about">The Firm</a></li>
+    <li><a href="#practice">Practice Areas</a></li>
+    <li><a href="#team">Our Lawyers</a></li>
+    <li><a href="#blog">Insights</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="drawer-consult" onclick="closeDrawer(); document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Free Consultation</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-arc"></div>
+  <div class="hero-arc2"></div>
+  <div class="hero-arc3"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="badge-line"></div><span class="badge-text">Dubai · Abu Dhabi · UAE</span></div>
+    <h1>
+      <span class="l1">Justice</span>
+      <span class="l2">Without</span>
+      <span class="l3"><em>Compromise</em></span>
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Three decades of unparalleled legal excellence across the Emirates. We represent clients with precision, discretion, and an unwavering commitment to results.</p>
+    <div class="hero-ctas">
+      <button class="cta-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request Consultation</button>
+      <button class="cta-ghost" onclick="document.getElementById('practice').scrollIntoView({behavior:'smooth'})">Explore Practice Areas</button>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hst"><div class="hst-n">30+</div><div class="hst-l">Years of Practice</div></div>
+    <div class="hst"><div class="hst-n">AED 2B+</div><div class="hst-l">Cases Won</div></div>
+    <div class="hst"><div class="hst-n">4,800+</div><div class="hst-l">Clients Served</div></div>
+  </div>
+  <div class="scroll-cue">
+    <div class="scroll-track"><div class="scroll-thumb"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner" id="marquee-inner"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">The Firm</span></div>
+      <div class="s-title">A Legacy of<br>Legal Excellence</div>
+      <div class="about-blockquote">"In the UAE's complex legal landscape, experience is not a credential — it is a necessity."</div>
+      <p class="about-text">Al Rashidi & Partners was founded in Dubai in 1994 with a singular conviction: that every client deserves the highest standard of legal representation, regardless of the complexity of their matter.</p>
+      <p class="about-text">Today, we are one of the Emirates' most respected law firms, with a proven track record across commercial litigation, corporate law, real estate, criminal defence, family law, and arbitration. Our team of 24 qualified lawyers speaks 12 languages and serves clients from 60+ nationalities.</p>
+      <p class="about-text">We are registered with the Dubai Courts, Abu Dhabi Judicial Department, DIFC Courts, and ADGM Courts — giving our clients comprehensive access across all UAE jurisdictions.</p>
+      <div class="about-cert">
+        <span class="cert">Dubai Courts</span>
+        <span class="cert">Abu Dhabi JD</span>
+        <span class="cert">DIFC Courts</span>
+        <span class="cert">ADGM Courts</span>
+        <span class="cert">ICC Arbitration</span>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-img-main">⚖️</div>
+      <div class="about-float">
+        <div class="af-num">30</div>
+        <div class="af-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="practice" id="practice">
+  <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">What we do</span></div>
+  <div class="s-title" style="color:#fff;">Our Practice<br>Areas</div>
+  <p class="s-sub">Comprehensive legal services across all UAE jurisdictions and international courts.</p>
+  <div class="practice-grid">
+    <div class="pa"><div class="pa-num">01</div><span class="pa-icon">🏛️</span><div class="pa-name">Commercial Litigation</div><div class="pa-desc">Representing businesses and individuals in UAE courts, DIFC, and ADGM. Contract disputes, debt recovery, commercial fraud, and urgent injunctions.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">02</div><span class="pa-icon">🏢</span><div class="pa-name">Corporate & M&A</div><div class="pa-desc">Company formation, mergers & acquisitions, shareholder disputes, joint ventures, and corporate governance across UAE free zones and mainland.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">03</div><span class="pa-icon">🏠</span><div class="pa-name">Real Estate Law</div><div class="pa-desc">Off-plan disputes, RERA complaints, title deed transfers, rental disputes, construction contracts, and Strata Law advisory.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">04</div><span class="pa-icon">👨‍👩‍👧</span><div class="pa-name">Family & Personal Status</div><div class="pa-desc">Divorce, custody battles, inheritance disputes, prenuptial agreements, and guardianship matters under UAE and Sharia law.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">05</div><span class="pa-icon">🛡️</span><div class="pa-name">Criminal Defence</div><div class="pa-desc">Vigorous representation in Dubai and Abu Dhabi criminal courts. Fraud, financial crimes, cybercrime, and deportation defence.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">06</div><span class="pa-icon">🤝</span><div class="pa-name">Arbitration & Mediation</div><div class="pa-desc">ICC, DIAC, ADCCAC, and LCIA arbitration. Experienced panel of arbitrators resolving complex cross-border commercial disputes.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">07</div><span class="pa-icon">✈️</span><div class="pa-name">Immigration & Residency</div><div class="pa-desc">UAE golden visa, investor visas, work permits, residency appeals, nationality advice, and citizenship advisory services.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">08</div><span class="pa-icon">💼</span><div class="pa-name">Employment Law</div><div class="pa-desc">UAE Labour Law compliance, employment contracts, wrongful termination, DIFC employment disputes, and EOS gratuity claims.</div><span class="pa-arrow">Enquire →</span></div>
+    <div class="pa"><div class="pa-num">09</div><span class="pa-icon">🌐</span><div class="pa-name">Banking & Finance</div><div class="pa-desc">Loan recovery, mortgage disputes, cheque bounce cases, Islamic finance structuring, and CBUAE regulatory compliance.</div><span class="pa-arrow">Enquire →</span></div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="numbers-grid">
+    <div class="nm"><div class="nm-n" id="n1">0</div><div class="nm-l">Cases Won</div></div>
+    <div class="nm"><div class="nm-n" id="n2">0</div><div class="nm-l">Years of Practice</div></div>
+    <div class="nm"><div class="nm-n" id="n3">0</div><div class="nm-l">Qualified Lawyers</div></div>
+    <div class="nm"><div class="nm-n" id="n4">0</div><div class="nm-l">Languages Spoken</div></div>
+  </div>
+</div>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">Our lawyers</span></div>
+  <div class="s-title">Meet the<br>Partners</div>
+  <div class="team-grid" id="team-grid"></div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">Client voices</span></div>
+  <div class="s-title">What Our<br>Clients Say</div>
+  <div class="testi-grid">
+    <div class="testi"><div class="testi-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Al Rashidi & Partners recovered AED 4.2 million for our company in a contract dispute that two other firms had declined to take. Their knowledge of UAE commercial law is exceptional."</p><div class="testi-divider"></div><div class="testi-author">Mohammed Al Marri</div><div class="testi-role">CEO, Marri Trading LLC — Dubai</div><span class="testi-case">Commercial Litigation</span></div>
+    <div class="testi"><div class="testi-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Going through a divorce in a foreign country is terrifying. The team at Al Rashidi handled my custody case with empathy, professionalism, and an outcome I never thought possible."</p><div class="testi-divider"></div><div class="testi-author">Priya Nair</div><div class="testi-role">Dubai Resident — Indian National</div><span class="testi-case">Family Law</span></div>
+    <div class="testi"><div class="testi-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Our RERA dispute was resolved in 8 weeks — the developer refunded our full deposit plus penalty. I recommend Al Rashidi to every expat facing a real estate problem in UAE."</p><div class="testi-divider"></div><div class="testi-author">Sarah Mitchell</div><div class="testi-role">UK Investor — Dubai Marina</div><span class="testi-case">Real Estate</span></div>
+    <div class="testi"><div class="testi-mark">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Faced with a criminal charge I knew nothing about, Al Rashidi's criminal defence team was at the police station within two hours. The charges were eventually dropped. Lifesavers."</p><div class="testi-divider"></div><div class="testi-author">K. Ramasamy</div><div class="testi-role">Business Owner — Sharjah</div><span class="testi-case">Criminal Defence</span></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">Legal insights</span></div>
+  <div class="s-title">Latest from<br>Our Lawyers</div>
+  <div class="blog-grid">
+    <div class="blog-card" onclick="showToast('Opening article...')">
+      <div class="blog-img">⚖️<span class="blog-cat">Labour Law</span></div>
+      <div class="blog-body"><div class="blog-date">March 2025</div><div class="blog-title">UAE Labour Law 2022 — Key Changes Every Employer Must Know</div><div class="blog-excerpt">Federal Law No. 33 of 2021 brought sweeping changes to employment contracts, probation periods, and end of service entitlements.</div><span class="blog-read">Read More →</span></div>
+    </div>
+    <div class="blog-card" onclick="showToast('Opening article...')">
+      <div class="blog-img">🏠<span class="blog-cat">Real Estate</span></div>
+      <div class="blog-body"><div class="blog-date">February 2025</div><div class="blog-title">Off-Plan Buyer Rights in Dubai — What RERA Guarantees You</div><div class="blog-excerpt">With off-plan property sales at record highs, understanding your RERA protections is more important than ever for investors.</div><span class="blog-read">Read More →</span></div>
+    </div>
+    <div class="blog-card" onclick="showToast('Opening article...')">
+      <div class="blog-img">🌐<span class="blog-cat">Corporate</span></div>
+      <div class="blog-body"><div class="blog-date">January 2025</div><div class="blog-title">UAE Corporate Tax 2025 — What Businesses Need to Do Now</div><div class="blog-excerpt">With UAE Corporate Tax now in full effect at 9%, we outline the compliance steps every mainland and free zone company must take.</div><span class="blog-read">Read More →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="s-eyebrow"><div class="s-line"></div><span class="s-tag">Get in touch</span></div>
+      <div class="s-title">Speak With<br>a Lawyer Today</div>
+      <p class="s-sub" style="margin-bottom:0;">Your first consultation is confidential and free of charge. We respond within 2 hours during business hours.</p>
+      <div class="contact-items">
+        <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val">+971 4 555 8800</div></div></div>
+        <div class="ci"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp (24/7)</div><div class="ci-val">+971 50 555 8801</div></div></div>
+        <div class="ci"><div class="ci-icon">📧</div><div><div class="ci-label">Email</div><div class="ci-val">consult@alrashidi.ae</div></div></div>
+        <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Head Office</div><div class="ci-val">Office 1402, Burj Daman, DIFC, Dubai</div></div></div>
+        <div class="ci"><div class="ci-icon">🕐</div><div><div class="ci-label">Office Hours</div><div class="ci-val">Sun – Thu: 8:00 AM – 7:00 PM</div></div></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="cf-title">Request a Free Consultation</div>
+      <div class="cf-sub">All communications are strictly confidential and protected by attorney-client privilege.</div>
+      <div class="fg-row">
+        <div class="fg"><label>Full Name *</label><input type="text" placeholder="Mohammed Al Rashid"/></div>
+        <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" placeholder="+971 50 XXX XXXX"/></div>
+      </div>
+      <div class="fg"><label>Email Address</label><input type="email" placeholder="you@company.ae"/></div>
+      <div class="fg"><label>Practice Area</label>
+        <select>
+          <option value="">Select legal matter</option>
+          <option>Commercial Litigation</option>
+          <option>Corporate & M&A</option>
+          <option>Real Estate Law</option>
+          <option>Family & Personal Status</option>
+          <option>Criminal Defence</option>
+          <option>Arbitration & Mediation</option>
+          <option>Immigration & Residency</option>
+          <option>Employment Law</option>
+          <option>Banking & Finance</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Nationality</label>
+        <select>
+          <option value="">Select nationality</option>
+          <option>Emirati</option><option>Indian</option><option>Pakistani</option>
+          <option>British</option><option>Filipino</option><option>Egyptian</option>
+          <option>American</option><option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label>Brief description of your matter</label><textarea placeholder="Please describe your legal issue briefly. All information is strictly confidential."></textarea></div>
+      <button class="submit-btn" onclick="showToast('Consultation request submitted. Our team will contact you within 2 hours.')">Submit Request — Confidential</button>
+      <button class="wa-btn" onclick="showToast('Opening WhatsApp — +971 50 555 8801')">💬 WhatsApp a Lawyer Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo-text">Al Rashidi & Partners</div>
+      <p class="footer-desc">Licensed Advocates & Legal Consultants registered with the Dubai Courts, Abu Dhabi Judicial Department, DIFC Courts and ADGM Courts. Providing premium legal services across the UAE since 1994.</p>
+      <div class="footer-badges">
+        <span class="fb">Dubai Courts</span><span class="fb">DIFC Courts</span>
+        <span class="fb">ADGM Courts</span><span class="fb">ICC Certified</span>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Practice Areas</h4><a href="#">Commercial Litigation</a><a href="#">Corporate Law</a><a href="#">Real Estate</a><a href="#">Family Law</a><a href="#">Criminal Defence</a></div>
+    <div class="footer-col"><h4>The Firm</h4><a href="#">About Us</a><a href="#">Our Team</a><a href="#">Legal Insights</a><a href="#">Careers</a><a href="#">Client Portal</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="#">+971 4 555 8800</a><a href="#">consult@alrashidi.ae</a><a href="#">DIFC, Dubai</a><a href="#">Abu Dhabi Office</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Al Rashidi & Partners Advocates & Legal Consultants LLC. All rights reserved.</span>
+    <span class="dubai-bar-badge">Dubai Legal Affairs Dept. License No: LAW-XXXXX</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('main-nav').classList.toggle('scrolled',window.scrollY>80);
+});
+
+// MOBILE MENU DRAWER
+const mobileToggle = document.getElementById('mobile-nav-toggle');
+const drawerClose = document.getElementById('drawer-close');
+const mobileDrawer = document.getElementById('mobile-drawer');
+const drawerOverlay = document.getElementById('drawer-overlay');
+const drawerLinks = document.querySelectorAll('.drawer-links a');
+
+function openDrawer() {
+  mobileDrawer.classList.add('open');
+  drawerOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  mobileDrawer.classList.remove('open');
+  drawerOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+if (mobileToggle) mobileToggle.addEventListener('click', openDrawer);
+if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
+drawerLinks.forEach(link => {
+  link.addEventListener('click', closeDrawer);
+});
+
+// MARQUEE
+const items=['Commercial Litigation','Corporate Law','Real Estate Disputes','Family & Divorce','Criminal Defence','Arbitration','Employment Law','DIFC Courts','Golden Visa','Banking & Finance','RERA Complaints','Company Formation'];
+const mi=document.getElementById('marquee-inner');
+const all=[...items,...items];
+mi.innerHTML=all.map(i=>`<span class="marquee-item">${i}<span class="marquee-dot">◆</span></span>`).join('');
+
+// TEAM DATA
+const TEAM = [
+  {name:'Saeed Al Rashidi',role:'Senior Partner & Founder',emoji:'👨‍⚖️',langs:'Arabic · English · French',spec:'Commercial Litigation · Criminal Defence',quote:'I have spent 30 years fighting for clients who others said had no case. Every client deserves the best defence.'},
+  {name:'Dr. Layla Al Mansouri',role:'Partner — Corporate & M&A',emoji:'👩‍⚖️',langs:'Arabic · English · German',spec:'Corporate Law · Mergers & Acquisitions',quote:'In business law, precision is everything. One ambiguous clause can cost millions.'},
+  {name:'James Whitfield',role:'Partner — DIFC & Arbitration',emoji:'👨‍⚖️',langs:'English · Arabic',spec:'DIFC Courts · International Arbitration',quote:'The DIFC is one of the world\'s most sophisticated legal environments. We navigate it daily.'},
+  {name:'Priya Krishnamurthy',role:'Senior Associate — Real Estate',emoji:'👩‍⚖️',langs:'English · Hindi · Tamil · Arabic',spec:'RERA Disputes · Off-Plan Law',quote:'UAE real estate law is complex. Our Indian and international clients deserve a lawyer who understands both worlds.'},
+  {name:'Omar Al Zaabi',role:'Associate — Family Law',emoji:'👨‍⚖️',langs:'Arabic · English',spec:'Family Law · Personal Status',quote:'Family matters require not just legal skill, but genuine human understanding and empathy.'},
+  {name:'Fatima Hassan',role:'Associate — Employment & Labour',emoji:'👩‍⚖️',langs:'Arabic · English · French',spec:'UAE Labour Law · DIFC Employment',quote:'Every worker in the UAE deserves to know their rights. That is the foundation of what I do.'},
+];
+
+function renderTeam(){
+  const g = document.getElementById('team-grid');
+  g.innerHTML = TEAM.map(m=>`
+    <div class="tm">
+      <div class="tm-img">
+        ${m.emoji}
+        <div class="tm-overlay">
+          <p class="tm-quote">"${m.quote}"</p>
+          <button class="tm-wa" onclick="showToast('Connecting you with ${m.name}...')">💬 Consult ${m.name.split(' ')[0]}</button>
+        </div>
+      </div>
+      <div class="tm-info">
+        <div class="tm-bar"></div>
+        <div class="tm-name">${m.name}</div>
+        <div class="tm-role">${m.role}</div>
+        <div class="tm-langs">🌐 ${m.langs}</div>
+      </div>
+    </div>`).join('');
+}
+
+// TEAM CARD TOUCH OVERLAY TOGGLE
+function initTeamTouch() {
+  const teamCards = document.querySelectorAll('.tm');
+  teamCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.tm-wa')) return;
+      
+      const isMobile = window.innerWidth <= 992;
+      if (isMobile) {
+        e.preventDefault();
+        const isActive = card.classList.contains('touch-active');
+        teamCards.forEach(c => c.classList.remove('touch-active'));
+        if (!isActive) {
+          card.classList.add('touch-active');
+        }
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.tm')) {
+      teamCards.forEach(c => c.classList.remove('touch-active'));
+    }
+  });
+}
+
+// COUNTER ANIMATION
+function animateNum(el,target,suffix,duration=2200){
+  let start=0;
+  const step=target/70;
+  const timer=setInterval(()=>{
+    start=Math.min(start+step,target);
+    el.textContent=Math.floor(start).toLocaleString()+(suffix||'');
+    if(start>=target)clearInterval(timer);
+  },duration/70);
+}
+const counted={done:false};
+const obs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting&&!counted.done){
+    counted.done=true;
+    animateNum(document.getElementById('n1'),4800,'+');
+    animateNum(document.getElementById('n2'),30,'+');
+    animateNum(document.getElementById('n3'),24,'');
+    animateNum(document.getElementById('n4'),12,'');
+  }
+},{threshold:0.3});
+obs.observe(document.querySelector('.numbers'));
+
+// TOAST
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+renderTeam();
+initTeamTouch();
+</script>
+</body>
+</html>
